@@ -189,3 +189,4 @@ cython_debug/
 
 # Plots
 *.pdf
+.ruff_cache
