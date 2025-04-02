@@ -8,9 +8,6 @@ import numpy as np
 import pandas as pd
 import torch
 from chemfunc.molecular_fingerprints import compute_rdkit_fingerprint
-from chemprop.models import MoleculeModel
-from chemprop.train import predict
-from chemprop.utils import load_args, load_checkpoint, load_scalers
 from rdkit import Chem
 from scipy.stats import percentileofscore
 from sklearn.preprocessing import StandardScaler
@@ -24,6 +21,9 @@ from admet_ai.chemprop.data import (
     set_cache_graph,
     set_cache_mol,
 )
+from admet_ai.chemprop.model import MoleculeModel
+from admet_ai.chemprop.train import predict
+from admet_ai.chemprop.utils import load_args, load_checkpoint, load_scalers
 from admet_ai.constants import (
     DEFAULT_DRUGBANK_PATH,
     DEFAULT_MODELS_DIR,
