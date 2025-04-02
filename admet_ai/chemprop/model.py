@@ -1301,7 +1301,7 @@ def load_scalers(
     :return: A tuple with the data :class:`~chemprop.data.scaler.StandardScaler`
              and features :class:`~chemprop.data.scaler.StandardScaler`.
     """
-    state = torch.load(path, map_location=lambda storage, loc: storage)
+    state = torch.load(path, map_location=lambda storage, loc: storage, weights_only=False)
 
     if state["data_scaler"] is not None:
         scaler = StandardScaler(
@@ -2161,7 +2161,7 @@ def load_checkpoint(
         debug = info = print
 
     # Load model and args
-    state = torch.load(path, map_location=lambda storage, loc: storage)
+    state = torch.load(path, map_location=lambda storage, loc: storage, weights_only=False)
     args = TrainArgs()
     args.from_dict(vars(state["args"]), skip_unsettable=True)
     loaded_state_dict = state["state_dict"]
