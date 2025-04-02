@@ -4,6 +4,8 @@ import unittest
 import numpy as np
 from rdkit import RDLogger
 
+from admet_ai.admet_model import ADMETModel
+
 
 class TestModels(unittest.TestCase):
     """
@@ -20,5 +22,5 @@ class TestModels(unittest.TestCase):
         Test compute input surface.
         """
 
-        self.assertTrue(True)
+        model = ADMETModel()
         

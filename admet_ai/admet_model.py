@@ -8,14 +8,6 @@ import numpy as np
 import pandas as pd
 import torch
 from chemfunc.molecular_fingerprints import compute_rdkit_fingerprint
-from chemprop.data import (
-    MoleculeDataLoader,
-    MoleculeDatapoint,
-    MoleculeDataset,
-    set_cache_graph,
-    set_cache_mol,
-)
-from chemprop.data.data import SMILES_TO_MOL
 from chemprop.models import MoleculeModel
 from chemprop.train import predict
 from chemprop.utils import load_args, load_checkpoint, load_scalers
@@ -24,6 +16,14 @@ from scipy.stats import percentileofscore
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 
+from admet_ai.chemprop.data import (
+    SMILES_TO_MOL,
+    MoleculeDataLoader,
+    MoleculeDatapoint,
+    MoleculeDataset,
+    set_cache_graph,
+    set_cache_mol,
+)
 from admet_ai.constants import (
     DEFAULT_DRUGBANK_PATH,
     DEFAULT_MODELS_DIR,
