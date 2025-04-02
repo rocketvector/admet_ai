@@ -38,6 +38,7 @@ clean:
 	rm -fr admet_ai/admet_ai.egg-info/
 	rm -fr joblib_memmap/
 	rm -fr .pytest_cache/
+	rm -fr .ruff_cache/
 	rm -f .coverage
 	rm -f .noseids
 	rm -f .profile
