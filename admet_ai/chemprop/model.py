@@ -1282,7 +1282,7 @@ def load_args(path: str) -> TrainArgs:
     """
     args = TrainArgs()
     args.from_dict(
-        vars(torch.load(path, map_location=lambda storage, loc: storage)["args"]),
+        vars(torch.load(path, map_location=lambda storage, loc: storage, weights_only=False)["args"]),
         skip_unsettable=True,
     )
 
