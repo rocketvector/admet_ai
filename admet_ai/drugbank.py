@@ -1,4 +1,5 @@
 """Defines functions for the DrugBank approved reference set."""
+
 from collections import defaultdict
 from functools import lru_cache
 from pathlib import Path
@@ -15,7 +16,6 @@ from admet_ai.constants import (
     DRUGBANK_NAME_COLUMN,
     DRUGBANK_SMILES_COLUMN,
 )
-
 
 DRUGBANK_DF = pd.DataFrame()
 ATC_CODE_TO_DRUGBANK_INDICES: dict[str, list[int]] = {}

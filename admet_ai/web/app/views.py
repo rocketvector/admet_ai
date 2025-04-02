@@ -1,13 +1,14 @@
 """Defines the routes of the ADMET-AI Flask app."""
-from uuid import uuid4
+
 from tempfile import NamedTemporaryFile
+from uuid import uuid4
 
 from flask import (
+    Response,
     after_this_request,
     jsonify,
     render_template,
     request,
-    Response,
     send_file,
     session,
 )
@@ -191,7 +192,11 @@ def set_atc_code() -> Response:
     drugbank_size = get_drugbank_size(session.get("atc_code"))
 
     # Send new DrugBank size
-    return jsonify({"drugbank_size_string": f"{drugbank_size:,}",})
+    return jsonify(
+        {
+            "drugbank_size_string": f"{drugbank_size:,}",
+        }
+    )
 
 
 @app.route("/drugbank_plot", methods=["GET"])

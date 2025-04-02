@@ -1,4 +1,5 @@
 """ADMET-AI class to contain ADMET model and prediction function."""
+
 from collections import defaultdict
 from multiprocessing import Pool
 from pathlib import Path
@@ -86,7 +87,9 @@ class ADMETModel:
             # Map ATC codes to all indices of the drugbank with that ATC code
             atc_code_to_drugbank_indices = defaultdict(set)
             for atc_column in [
-                column for column in self.drugbank.columns if column.startswith(DRUGBANK_ATC_NAME_PREFIX)
+                column
+                for column in self.drugbank.columns
+                if column.startswith(DRUGBANK_ATC_NAME_PREFIX)
             ]:
                 for index, atc_codes in self.drugbank[atc_column].dropna().items():
                     for atc_code in atc_codes.split(DRUGBANK_DELIMITER):
@@ -259,7 +262,7 @@ class ADMETModel:
                     tqdm(
                         map_fn(compute_rdkit_fingerprint, mols),
                         total=len(mols),
-                        desc=f"RDKit fingerprints",
+                        desc="RDKit fingerprints",
                     )
                 )
             )
@@ -274,7 +277,10 @@ class ADMETModel:
         data_loader = MoleculeDataLoader(
             dataset=MoleculeDataset(
                 [
-                    MoleculeDatapoint(smiles=[smile], features=fingerprint,)
+                    MoleculeDatapoint(
+                        smiles=[smile],
+                        features=fingerprint,
+                    )
                     for smile, fingerprint in zip(smiles, fingerprints)
                 ]
             ),
@@ -346,7 +352,7 @@ class ADMETModel:
             preds = pd.concat((preds, drugbank_percentiles), axis=1)
 
         # Convert to dictionary if SMILES type is string
-        if smiles_type == str:
+        if isinstance(smiles_type, str):
             preds = preds.iloc[0].to_dict()
 
         return preds

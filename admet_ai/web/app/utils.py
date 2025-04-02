@@ -1,4 +1,5 @@
 """Utility functions related to the ADMET-AI web server."""
+
 import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -10,7 +11,6 @@ from rdkit import Chem
 from werkzeug.utils import secure_filename
 
 from admet_ai.web.app import app
-
 
 SVG_WIDTH_PATTERN = re.compile(r"width=['\"]\d+(\.\d+)?[a-z]+['\"]")
 SVG_HEIGHT_PATTERN = re.compile(r"height=['\"]\d+(\.\d+)?[a-z]+['\"]")

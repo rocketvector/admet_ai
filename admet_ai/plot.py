@@ -1,4 +1,5 @@
 """Defines functions for ADMET-AI plots."""
+
 import re
 from io import BytesIO
 
@@ -9,10 +10,7 @@ import seaborn as sns
 from rdkit import Chem
 from rdkit.Chem.Draw.rdMolDraw2D import MolDraw2DSVG
 
-from admet_ai.admet_info import (
-    get_admet_id_to_units,
-    get_admet_name_to_id,
-)
+from admet_ai.admet_info import get_admet_id_to_units, get_admet_name_to_id
 
 
 def string_to_latex_sup(string: str) -> str:

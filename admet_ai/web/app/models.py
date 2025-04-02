@@ -1,7 +1,7 @@
 """Defines functions for ADMET-AI models."""
+
 from admet_ai import ADMETModel
 from admet_ai.web.app import app
-
 
 ADMET_MODEL: ADMETModel | None = None
 

@@ -1,6 +1,6 @@
 """Contains constants used throughout ADMET-AI."""
-from importlib import resources
 
+from importlib import resources
 
 # Paths to data and models
 with resources.path("admet_ai", "resources") as resources_dir:

@@ -8,7 +8,7 @@ init:
 lint:
 	isort ./admet_ai
 	black ./admet_ai
-	python -m flake8 ./admet_ai
+	ruff check ./admet_ai --fix
 
 test:
 	nose2 -v --log-capture

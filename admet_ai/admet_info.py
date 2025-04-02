@@ -1,10 +1,10 @@
 """Defines functions for ADMET info."""
+
 from pathlib import Path
 
 import pandas as pd
 
 from admet_ai.constants import DEFAULT_ADMET_PATH
-
 
 ADMET_DF = pd.DataFrame()
 ADMET_ID_TO_NAME: dict[str, str] = {}

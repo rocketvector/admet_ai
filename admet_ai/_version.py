@@ -1,4 +1,5 @@
 """Contains the version information for ADMET-AI."""
+
 # major, minor, patch
 version_info = 1, 3, 1
 
