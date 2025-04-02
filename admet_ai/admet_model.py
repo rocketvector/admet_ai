@@ -21,9 +21,13 @@ from admet_ai.chemprop.data import (
     set_cache_graph,
     set_cache_mol,
 )
-from admet_ai.chemprop.model import MoleculeModel
+from admet_ai.chemprop.model import (
+    MoleculeModel,
+    load_args,
+    load_checkpoint,
+    load_scalers,
+)
 from admet_ai.chemprop.train import predict
-from admet_ai.chemprop.utils import load_args, load_checkpoint, load_scalers
 from admet_ai.constants import (
     DEFAULT_DRUGBANK_PATH,
     DEFAULT_MODELS_DIR,
