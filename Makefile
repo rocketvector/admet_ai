@@ -53,7 +53,7 @@ clean:
 	rm -fr htmlcov
 
 .PHONY: gcs-upload
-gcs-upload: build build-zip
+gcs-upload: build
 	@set -e; \
 	[ -d dist ] && [ "$$(ls -A dist)" ] || { echo "No files in dist/"; exit 1; }; \
 	gsutil cp dist/* "gs://$(BUCKET)/"
