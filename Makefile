@@ -19,6 +19,15 @@ test:
 build:
 	python -m build --skip-dependency-check --no-isolation
 
+.PHONY: build-zip
+build-zip:
+	@mkdir -p dist
+	@name=$$(poetry version | awk '{print $$1}'); \
+	ver=$$(poetry version -s); \
+	echo "Building dist/$$name-$$ver.zip"; \
+	cd $(CURDIR) && zip -r "dist/$$name-$$ver.zip" $$name -x '*__pycache__*' '*.pyc' >/dev/null; \
+	echo "OK -> dist/$$name-$$ver.zip"
+
 .PHONY: install
 install:
 	pip install dist/*.whl
@@ -53,7 +62,7 @@ clean:
 	rm -fr htmlcov
 
 .PHONY: gcs-upload
-gcs-upload: build
+gcs-upload: build build-zip
 	@set -e; \
 	[ -d dist ] && [ "$$(ls -A dist)" ] || { echo "No files in dist/"; exit 1; }; \
 	gsutil cp dist/* "gs://$(BUCKET)/"
