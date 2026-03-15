@@ -1,12 +1,23 @@
 """Contains constants used throughout ADMET-AI."""
 
+import atexit
+from contextlib import ExitStack
 from importlib import resources
 
+RESOURCE_STACK = ExitStack()
+atexit.register(RESOURCE_STACK.close)
+RESOURCE_ROOT = resources.files("admet_ai").joinpath("resources")
+
 # Paths to data and models
-with resources.path("admet_ai", "resources") as resources_dir:
-    DEFAULT_ADMET_PATH = resources_dir / "data" / "admet.csv"
-    DEFAULT_DRUGBANK_PATH = resources_dir / "data" / "drugbank_approved.csv"
-    DEFAULT_MODELS_DIR = resources_dir / "models"
+DEFAULT_ADMET_PATH = RESOURCE_STACK.enter_context(
+    resources.as_file(RESOURCE_ROOT.joinpath("data", "admet.csv"))
+)
+DEFAULT_DRUGBANK_PATH = RESOURCE_STACK.enter_context(
+    resources.as_file(RESOURCE_ROOT.joinpath("data", "drugbank_approved.csv"))
+)
+DEFAULT_MODELS_DIR = RESOURCE_STACK.enter_context(
+    resources.as_file(RESOURCE_ROOT.joinpath("models"))
+)
 
 # DrugBank columns
 DRUGBANK_ID_COLUMN = "id"
