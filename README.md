@@ -1,3 +1,22 @@
+> [!IMPORTANT]
+> This repository is superseded. Canonical development moved to
+> [`rocketvector/drug/workflows/molecule/components/admet`](https://github.com/rocketvector/drug/tree/main/workflows/molecule/components/admet).
+> Do not open new code changes here; archival is tracked in
+> [`rocketvector/drug#1286`](https://github.com/rocketvector/drug/issues/1286).
+> Signposted: `2026-08-15`.
+>
+> Pre-signpost source: `f5ac718d9fd14bb770a5dff258ee003929772c1a`
+> (tree `91d00d5d16fe55ddf291c842801287b8b1a8c8ef`). Drug imported it in
+> `044f14533df937a9fb9387cdbcf33232de7a4e59`, moved it in
+> `57c3fc9dea9aa4ce6641eb889705b91b60446a41`, and released terminal source
+> `1123a6a56e930ba5963ea2e1604ddcdda2f934f3`. The `admet_ai` compatibility
+> import/distribution remains available from Drug; publication is root-owned.
+> Recovery bundle:
+> `gs://rocketvector-drug-code/repository-mirrors/20260815-restructure-7c9c05e/pre-signpost/bundles/admet_ai-pre-signpost-7c9c05e.bundle`
+> (`sha256:764948c8909de0ec7fceb0dc290c88fafeaf2c0fe79d1c1dde13308cdb7674fb`).
+> This repository remains writable only for the required 14-day no-write soak,
+> then will be archived, never deleted.
+
 # ADMET-AI
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/admet_ai)](https://badge.fury.io/py/admet_ai)
